@@ -4,7 +4,7 @@ class Space {
   ArrayList<PVector> starPositions; 
   float[] starSizes; 
   int waxSpeed = 8; 
-  float maxSize = 1.0; 
+  float maxSize = 0.35; 
   boolean hideStars = false;
   
   Space() {
