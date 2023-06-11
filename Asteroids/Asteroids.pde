@@ -16,22 +16,47 @@ void setup(){
 }
 
 void draw(){
- //background (0);
+ background (0);
  Update();
  Render();
  space.drawStars();
  
 }
 void Update(){
+  player.updateShip();
 for(int i = 0; i < asteroidField.size(); i++){
       asteroidField.get(i).Update();
 }
 }
 
 void Render(){
-  background(0);
   player.Render();
   for(int i = 0; i < asteroidField.size(); i++){
     asteroidField.get(i).Render(); 
    }
+}
+   void keyPressed() {
+  if (key == 'q' || key == 'Q' || keyCode == LEFT) {
+    player.rotateLeft = true;
+  }
+  if (key == 'e' || key == 'E' || keyCode == RIGHT) {
+    player.rotateRight = true;
+  }
+  if (keyCode == UP) {
+    player.moveForward = true;
+  }
+
+}
+
+void keyReleased() {
+  if (key == 'q' || key == 'Q' || keyCode == LEFT) {
+    player.rotateLeft = false;
+  }
+  if (key == 'e' || key == 'E'|| keyCode == RIGHT) {
+    player.rotateRight = false;
+  }
+  if (keyCode == UP) {
+    player.moveForward = false;
+  }
+
 }
